@@ -1,6 +1,7 @@
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import SummaryCards from "../../components/Cards/SummaryCards";
+import QuickActions from "../../components/QuickActions/QuickActions";
 
 export default function Dashboard() {
   return (
@@ -19,6 +20,8 @@ export default function Dashboard() {
           </h1>
 
           <SummaryCards />
+
+          <QuickActions />
 
         </main>
 
