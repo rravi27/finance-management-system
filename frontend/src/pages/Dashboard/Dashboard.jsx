@@ -2,6 +2,9 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import SummaryCards from "../../components/Cards/SummaryCards";
 import QuickActions from "../../components/QuickActions/QuickActions";
+import RecentTransactions from "../../components/Transactions/RecentTransactions";
+import BudgetProgress from "../../components/Budget/BudgetProgress";
+import ChartSection from "../../components/Charts/ChartSection";
 
 export default function Dashboard() {
   return (
@@ -22,6 +25,22 @@ export default function Dashboard() {
           <SummaryCards />
 
           <QuickActions />
+
+          <div className="grid grid-cols-3 gap-6 mt-8">
+
+          <div className="col-span-2">
+
+            <RecentTransactions />
+
+        </div>
+
+        <BudgetProgress />
+
+  </div>
+
+  <div className="mt-8">
+    <ChartSection />
+</div>
 
         </main>
 
