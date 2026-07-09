@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import {
   FaHome,
   FaExchangeAlt,
@@ -9,13 +11,13 @@ import {
 } from "react-icons/fa";
 
 const menuItems = [
-  { icon: <FaHome />, text: "Dashboard" },
-  { icon: <FaExchangeAlt />, text: "Transactions" },
-  { icon: <FaTags />, text: "Categories" },
-  { icon: <FaWallet />, text: "Budgets" },
-  { icon: <FaChartBar />, text: "Reports" },
-  { icon: <FaRobot />, text: "AI Insights" },
-  { icon: <FaCog />, text: "Settings" },
+  { icon: <FaHome />, text: "Dashboard", path: "/" },
+  { icon: <FaExchangeAlt />, text: "Transactions", path: "/transactions" },
+  { icon: <FaTags />, text: "Categories", path: "/categories" },
+  { icon: <FaWallet />, text: "Budgets", path: "/budgets" },
+  { icon: <FaChartBar />, text: "Reports", path: "/reports" },
+  { icon: <FaRobot />, text: "AI Insights", path: "/ai-insights" },
+  { icon: <FaCog />, text: "Settings", path: "/settings" },
 ];
 
 export default function Sidebar() {
@@ -31,19 +33,20 @@ export default function Sidebar() {
       <nav className="flex-1 p-4">
 
         {menuItems.map((item, index) => (
-          <div
-            key={index}
-            className={`flex items-center gap-4 p-3 rounded-lg cursor-pointer mb-2 transition
-            ${
-              index === 0
-                ? "bg-teal-600"
-                : "hover:bg-slate-800"
-            }`}
-          >
-            {item.icon}
-
-            <span>{item.text}</span>
-          </div>
+        <NavLink
+        key={index}
+        to={item.path}
+        className={({ isActive }) =>
+          `flex items-center gap-4 p-3 rounded-lg mb-2 transition ${
+            isActive
+              ? "bg-teal-600"
+              : "hover:bg-slate-800"
+          }`
+        }
+      >
+        {item.icon}
+        <span>{item.text}</span>
+      </NavLink>
         ))}
 
       </nav>
